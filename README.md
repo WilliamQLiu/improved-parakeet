@@ -18,9 +18,13 @@ Currently using:
 
 # Run
 
-## Run Data Extraction with scrapy
+## Run Data Extraction with **scrapy**
 
 In **extract** dir, run `scrapy crawl listing -o ./transform/listings.json` to
 run the ListingSpider (which will crawl through an XML endpoint) and we will
 save the output to a `./transform/listings.json`
+
+## Run Data Transformation with **luigi**
+
+In **transform** dir, run `python run_transform.py TransformListings --local-scheduler`
 
