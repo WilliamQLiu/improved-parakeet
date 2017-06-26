@@ -1,0 +1,323 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Listings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Listing" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Location">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="StreetAddress"/>
+                    <xs:element type="xs:string" name="UnitNumber"/>
+                    <xs:element type="xs:string" name="City"/>
+                    <xs:element type="xs:string" name="State"/>
+                    <xs:element type="xs:int" name="Zip"/>
+                    <xs:element type="xs:string" name="ParcelID"/>
+                    <xs:element type="xs:string" name="Lat"/>
+                    <xs:element type="xs:string" name="Long"/>
+                    <xs:element type="xs:string" name="County"/>
+                    <xs:element type="xs:string" name="StreetIntersection"/>
+                    <xs:element type="xs:string" name="DisplayAddress"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="ListingDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Status"/>
+                    <xs:element type="xs:float" name="Price"/>
+                    <xs:element type="xs:anyURI" name="ListingUrl"/>
+                    <xs:element type="xs:string" name="MlsId"/>
+                    <xs:element type="xs:string" name="MlsName"/>
+                    <xs:element type="xs:int" name="ProviderListingId"/>
+                    <xs:element type="xs:string" name="DateListed"/>
+                    <xs:element type="xs:anyURI" name="VirtualTourUrl"/>
+                    <xs:element type="xs:string" name="ListingEmail"/>
+                    <xs:element type="xs:byte" name="AlwaysEmailAgent"/>
+                    <xs:element type="xs:string" name="ShortSale"/>
+                    <xs:element type="xs:string" name="REO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="RentalDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Availability"/>
+                    <xs:element type="xs:string" name="LeaseTerm"/>
+                    <xs:element type="xs:string" name="DepositFees"/>
+                    <xs:element name="UtilitiesIncluded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Water"/>
+                          <xs:element type="xs:string" name="Sewage"/>
+                          <xs:element type="xs:string" name="Garbage"/>
+                          <xs:element type="xs:string" name="Electricity"/>
+                          <xs:element type="xs:string" name="Gas"/>
+                          <xs:element type="xs:string" name="Internet"/>
+                          <xs:element type="xs:string" name="Cable"/>
+                          <xs:element type="xs:string" name="SatTV"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="PetsAllowed">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="NoPets"/>
+                          <xs:element type="xs:string" name="Cats"/>
+                          <xs:element type="xs:string" name="SmallDogs"/>
+                          <xs:element type="xs:string" name="LargeDogs"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="BasicDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="PropertyType"/>
+                    <xs:element type="xs:string" name="Title"/>
+                    <xs:element type="xs:string" name="Description"/>
+                    <xs:element type="xs:byte" name="Bedrooms"/>
+                    <xs:element type="xs:string" name="Bathrooms"/>
+                    <xs:element type="xs:string" name="FullBathrooms"/>
+                    <xs:element type="xs:string" name="HalfBathrooms"/>
+                    <xs:element type="xs:string" name="ThreeQuarterBathrooms"/>
+                    <xs:element type="xs:string" name="LivingArea"/>
+                    <xs:element type="xs:string" name="LotSize"/>
+                    <xs:element type="xs:string" name="year-built"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Pictures">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Picture" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:anyURI" name="PictureUrl"/>
+                          <xs:element type="xs:string" name="Caption"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Agent">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="FirstName"/>
+                    <xs:element type="xs:string" name="LastName"/>
+                    <xs:element type="xs:string" name="EmailAddress"/>
+                    <xs:element type="xs:anyURI" name="PictureUrl"/>
+                    <xs:element type="xs:string" name="OfficeLineNumber"/>
+                    <xs:element type="xs:string" name="MobilePhoneLineNumber"/>
+                    <xs:element type="xs:string" name="FaxLineNumber"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Office">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="BrokerageName"/>
+                    <xs:element type="xs:string" name="BrokerPhone"/>
+                    <xs:element type="xs:string" name="BrokerEmail"/>
+                    <xs:element type="xs:anyURI" name="BrokerWebsite"/>
+                    <xs:element type="xs:string" name="StreetAddress"/>
+                    <xs:element type="xs:string" name="UnitNumber"/>
+                    <xs:element type="xs:string" name="City"/>
+                    <xs:element type="xs:string" name="State"/>
+                    <xs:element type="xs:int" name="Zip"/>
+                    <xs:element type="xs:string" name="OfficeName"/>
+                    <xs:element type="xs:string" name="FranchiseName"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="OpenHouses">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="OpenHouse" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element type="xs:date" name="Date" minOccurs="0"/>
+                          <xs:element type="xs:string" name="StartTime" minOccurs="0"/>
+                          <xs:element type="xs:string" name="EndTime" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Fees">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Fee">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="FeeType"/>
+                          <xs:element type="xs:string" name="FeeAmount"/>
+                          <xs:element type="xs:string" name="FeePeriod"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Neighborhood">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Name"/>
+                    <xs:element type="xs:string" name="Description"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="RichDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="AdditionalFeatures"/>
+                    <xs:element name="Appliances">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Appliance" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="ArchitectureStyle"/>
+                    <xs:element type="xs:string" name="Attic"/>
+                    <xs:element type="xs:string" name="BarbecueArea"/>
+                    <xs:element type="xs:string" name="Basement"/>
+                    <xs:element type="xs:string" name="BuildingUnitCount"/>
+                    <xs:element type="xs:string" name="CableReady"/>
+                    <xs:element type="xs:string" name="CeilingFan"/>
+                    <xs:element type="xs:string" name="CondoFloorNum"/>
+                    <xs:element name="CoolingSystems">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="CoolingSystem"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="Deck"/>
+                    <xs:element type="xs:string" name="DisabledAccess"/>
+                    <xs:element type="xs:string" name="Dock"/>
+                    <xs:element type="xs:string" name="Doorman"/>
+                    <xs:element type="xs:string" name="DoublePaneWindows"/>
+                    <xs:element type="xs:string" name="Elevator"/>
+                    <xs:element name="ExteriorTypes">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="ExteriorType"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="Fireplace"/>
+                    <xs:element name="FloorCoverings">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="FloorCovering"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="Garden"/>
+                    <xs:element type="xs:string" name="Gated"/>
+                    <xs:element type="xs:string" name="Greenhouse"/>
+                    <xs:element name="HeatingFuels">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="HeatingFuel" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="HottubSpa"/>
+                    <xs:element type="xs:string" name="Intercom"/>
+                    <xs:element type="xs:string" name="JettedBathTub"/>
+                    <xs:element type="xs:string" name="Lawn"/>
+                    <xs:element type="xs:string" name="LegalDescription"/>
+                    <xs:element type="xs:string" name="MotherInLaw"/>
+                    <xs:element type="xs:string" name="NumFloors"/>
+                    <xs:element type="xs:string" name="NumParkingSpaces"/>
+                    <xs:element name="ParkingTypes">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="ParkingType"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="Patio"/>
+                    <xs:element type="xs:string" name="Pond"/>
+                    <xs:element type="xs:string" name="Pool"/>
+                    <xs:element type="xs:string" name="Porch"/>
+                    <xs:element name="RoofTypes">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="RoofType" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:byte" name="RoomCount"/>
+                    <xs:element name="Rooms" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Room" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="RvParking"/>
+                    <xs:element type="xs:string" name="Sauna"/>
+                    <xs:element type="xs:string" name="SecuritySystem"/>
+                    <xs:element type="xs:string" name="Skylight"/>
+                    <xs:element type="xs:string" name="SportsCourt"/>
+                    <xs:element type="xs:string" name="SprinkerSystem"/>
+                    <xs:element type="xs:string" name="VaultedCeiling"/>
+                    <xs:element name="ViewTypes">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="ViewType"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="Waterfront"/>
+                    <xs:element type="xs:string" name="Wetbar"/>
+                    <xs:element type="xs:string" name="WhatOwnerLoves"/>
+                    <xs:element type="xs:string" name="Wired"/>
+                    <xs:element type="xs:string" name="YearUpdated"/>
+                    <xs:element type="xs:string" name="FitnessCenter"/>
+                    <xs:element type="xs:string" name="BasketballCourt"/>
+                    <xs:element type="xs:string" name="TennisCourt"/>
+                    <xs:element type="xs:string" name="NearTransportation"/>
+                    <xs:element type="xs:string" name="ControlledAccess"/>
+                    <xs:element type="xs:string" name="Over55ActiveCommunity"/>
+                    <xs:element type="xs:string" name="AssistedLivingCommunity"/>
+                    <xs:element type="xs:string" name="Storage"/>
+                    <xs:element type="xs:string" name="FencedYard"/>
+                    <xs:element type="xs:string" name="PropertyName"/>
+                    <xs:element type="xs:string" name="Furnished"/>
+                    <xs:element type="xs:string" name="HighspeedInternet"/>
+                    <xs:element type="xs:string" name="OnsiteLaundry"/>
+                    <xs:element type="xs:string" name="CableSatTV"/>
+                    <xs:element name="Taxes">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Tax">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="TaxYear"/>
+                                <xs:element type="xs:string" name="TaxAmount"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="NewConstruction"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
