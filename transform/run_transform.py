@@ -1,5 +1,6 @@
 """ Run with 'python run_transform.py TransformListings --local-scheduler' """
 import subprocess
+from datetime import datetime
 
 import luigi
 import pandas as pd
@@ -7,7 +8,7 @@ import pandas as pd
 
 LISTINGS_INPUT_FILENAME = 'listings.json'
 LISTINGS_OUTPUT_FILENAME = 'listings.csv'
-
+MAX_DESC_LENGTH = 200
 
 class GetListings(luigi.Task):
     """ Task to check that data extraction file exists """
@@ -56,10 +57,9 @@ class TransformListings(luigi.Task):
         return df
 
     def _description_filter(self, df):
-        """ Must have 'and' in the description field and return first 200 chars only """
-        MAX_DESC_LENGTH = 200
+        """ Must have 'and' in the description field and return first X chars only """
         df = df[df['Description'].str.contains("and")]
-        df['Description'].map(lambda x: x[:MAX_DESC_LENGTH])
+        df['Description'] = df['Description'].map(lambda x: x[:MAX_DESC_LENGTH])
         return df
 
 
@@ -73,6 +73,8 @@ class TestListingsCSV(luigi.Task):
         df = pd.read_csv(LISTINGS_OUTPUT_FILENAME)
         print df.head()
         self._test_df_headers(df)
+        self._test_df_datetime(df)
+        self._test_df_description(df)
 
     def _test_df_headers(self, df):
         """ DataFrame headers are what we expect """
@@ -81,6 +83,17 @@ class TestListingsCSV(luigi.Task):
             'DateListed', 'Description', 'MlsId', 'MlsName', 'Price',
             'Rooms', 'StreetAddress'
         ]
+
+    def _test_df_datetime(self, df):
+        """ DataFrame time is limited correctly """
+        date_raw = df['DateListed'].iloc[0]  # e.g. '2016-01-07 00:00:00'
+        first_date_time = datetime.strptime(date_raw, "%Y-%m-%d %H:%M:%S")
+        assert first_date_time >= datetime(2016, 1, 1, 0, 0) and \
+            first_date_time < datetime(2017, 1, 1, 0, 0)
+
+    def _test_df_description(self, df):
+        max_length = df['Description'].map(lambda x: len(x)).max()
+        assert max_length <= MAX_DESC_LENGTH
 
 
 if __name__ == '__main__':
