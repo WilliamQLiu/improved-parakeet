@@ -17,11 +17,11 @@ class TransformListings(luigi.Task):
         return []
 
     def run(self):
-        import pdb
-        pdb.set_trace()
         df = pd.read_json(LISTINGS_INPUT_FILENAME)
-        print df.head()
         df = self._rename_columns(df)
+        df = self._datetime_sort_filter(df)
+        df = self._description_filter(df)
+        print df.head()
         return df.head()
 
     def _rename_columns(self, df):
@@ -39,6 +39,21 @@ class TransformListings(luigi.Task):
             'rooms': 'Rooms',
             'description': 'Description'
         })
+
+    def _datetime_sort_filter(self, df):
+        """ Change column to datetime, filter by time, and sort """
+        df['DateListed'] = pd.to_datetime(df['DateListed'])
+        df = df[(df['DateListed'] >= '2016-01-01') & (df['DateListed'] < '2017-01-01')]
+        df = df.sort_values(by='DateListed', ascending=True)
+        return df
+    
+    def _description_filter(self, df):
+        """ Must have 'and' in the description field and return first 200 chars only """
+        MAX_DESC_LENGTH = 200
+        df = df[df['Description'].str.contains("and")]
+        df['Description'].map(lambda x: x[:MAX_DESC_LENGTH])
+        return df
+
 
 if __name__ == '__main__':
     luigi.run()
