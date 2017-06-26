@@ -38,8 +38,11 @@ Building out a data extraction and transformation system using the following too
 
 * Scrapy for data extraction (from an XML endpoint).
     * The code is in the `extract` directory. This data extraction creates a JSON file, but the idea is that we store our data somewhere so we can later look at it.
+    * Scaping is being done by **Spiders** that iterate through an XML feed
+    * As we iterate over XML nodes, we create **Items**, our models for storing data
 * Luigi for data transformation.
     * The code is in the `transform` directory. This data transformation creates a CSV file, but the idea is that we can run transformations on our earlier data and can export it out in a new format.
+    * Operations are idempotent so you can rerun luigi tasks to produce the same result.
 * Misc data exploration code in in the `explore` directory
 
 # Setup
