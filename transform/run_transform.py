@@ -46,7 +46,7 @@ class TransformListings(luigi.Task):
         df = df[(df['DateListed'] >= '2016-01-01') & (df['DateListed'] < '2017-01-01')]
         df = df.sort_values(by='DateListed', ascending=True)
         return df
-    
+
     def _description_filter(self, df):
         """ Must have 'and' in the description field and return first 200 chars only """
         MAX_DESC_LENGTH = 200
