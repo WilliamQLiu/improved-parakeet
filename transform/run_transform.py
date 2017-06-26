@@ -9,19 +9,28 @@ LISTINGS_INPUT_FILENAME = 'listings.json'
 LISTINGS_OUTPUT_FILENAME = 'listings.csv'
 
 
+class GetListings(luigi.Task):
+    """ Task to check that data extraction file exists """
+    def output(self):
+        return luigi.LocalTarget(LISTINGS_INPUT_FILENAME)
+
+
 class TransformListings(luigi.Task):
     """ Task to Transform parsed listings from json to csv """
 
     def requires(self):
         """ List of previous tasks required """
-        return []
+        return [GetListings()]
 
     def run(self):
         df = pd.read_json(LISTINGS_INPUT_FILENAME)
         df = self._rename_columns(df)
         df = self._datetime_sort_filter(df)
         df = self._description_filter(df)
-        df.to_csv(LISTINGS_OUTPUT_FILENAME, index=False)
+        return df.to_csv(LISTINGS_OUTPUT_FILENAME, index=False)
+
+    def output(self):
+        return luigi.LocalTarget(LISTINGS_OUTPUT_FILENAME)
 
     def _rename_columns(self, df):
         """ Rename columns """
@@ -52,6 +61,26 @@ class TransformListings(luigi.Task):
         df = df[df['Description'].str.contains("and")]
         df['Description'].map(lambda x: x[:MAX_DESC_LENGTH])
         return df
+
+
+class TestListingsCSV(luigi.Task):
+    """ Test Transformations """
+
+    def requires(self):
+        return [TransformListings()]
+
+    def run(self):
+        df = pd.read_csv(LISTINGS_OUTPUT_FILENAME)
+        print df.head()
+        self._test_df_headers(df)
+
+    def _test_df_headers(self, df):
+        """ DataFrame headers are what we expect """
+        assert list(df.columns.values) == [
+            'Appliances', 'BathroomsFull', 'BathroomsHalf', 'Bedrooms',
+            'DateListed', 'Description', 'MlsId', 'MlsName', 'Price',
+            'Rooms', 'StreetAddress'
+        ]
 
 
 if __name__ == '__main__':
