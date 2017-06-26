@@ -24,7 +24,8 @@ In **extract** dir, run `scrapy crawl listing -o ../transform/listings.json` to
 run the ListingSpider (which will crawl through an XML endpoint) and we will
 save the output to a `./transform/listings.json`
 
-## Run Data Transformation with **luigi**
+## Run Data Transformation with **luigi** and **pandas**
 
 In **transform** dir, run `python run_transform.py TransformListings --local-scheduler`
 
+You should see an output file with the transformed data in `transform/listings.csv`.
