@@ -21,7 +21,7 @@ class ListingSpider(XMLFeedSpider):
             item = ListingsItem()
             item['mls_id'] = node.xpath('ListingDetails/MlsId/text()').extract_first()
             item['mls_name'] = node.xpath('ListingDetails/MlsName/text()').extract_first()
-            item['mls_date_listed'] = node.xpath('ListingDetails/DateListed/text()').extract_first()
+            item['date_listed'] = node.xpath('ListingDetails/DateListed/text()').extract_first()
             item['street_address'] = node.xpath('Location/StreetAddress/text()').extract_first()
             item['price'] = node.xpath('ListingDetails/Price/text()').extract_first()
             item['bedrooms'] = node.xpath('BasicDetails/Bedrooms/text()').extract_first()

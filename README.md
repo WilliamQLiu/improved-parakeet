@@ -20,7 +20,7 @@ Currently using:
 
 ## Run Data Extraction with **scrapy**
 
-In **extract** dir, run `scrapy crawl listing -o ./transform/listings.json` to
+In **extract** dir, run `scrapy crawl listing -o ../transform/listings.json` to
 run the ListingSpider (which will crawl through an XML endpoint) and we will
 save the output to a `./transform/listings.json`
 

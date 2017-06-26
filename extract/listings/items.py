@@ -9,17 +9,10 @@ import scrapy
 
 
 class ListingsItem(scrapy.Item):
-    """
-    Parse an individual listing for the following:
-        Location - StreetAddress
-        ListingDetails - Price, MlsId, MlsName, DateListed
-        RentalDetails - 
-        BasicDetails - Description, Bathrooms
-        RichDetails - Appliances
-    """
+    """ Parse an individual listing for fields """
     mls_id = scrapy.Field()
     mls_name = scrapy.Field()
-    mls_date_listed = scrapy.Field()
+    date_listed = scrapy.Field()
     street_address = scrapy.Field()
     price = scrapy.Field()
     bedrooms = scrapy.Field()
