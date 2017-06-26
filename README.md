@@ -36,9 +36,11 @@ This feed must be downloaded from with in the script, raw data must not be downl
 
 Building out a data extraction and transformation system using the following tools:
 
-* Scrapy for data extraction (from an XML endpoint), code in **extract** dir
-* Luigi for data transformation, code in **transform** dir
-* Misc data exploration code in **explore** dir
+* Scrapy for data extraction (from an XML endpoint).
+    * The code is in the `extract` directory. This data extraction creates a JSON file, but the idea is that we store our data somewhere so we can later look at it.
+* Luigi for data transformation.
+    * The code is in the `transform` directory. This data transformation creates a CSV file, but the idea is that we can run transformations on our earlier data and can export it out in a new format.
+* Misc data exploration code in in the `explore` directory
 
 # Setup
 
