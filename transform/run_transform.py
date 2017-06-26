@@ -17,14 +17,14 @@ class TransformListings(luigi.Task):
         return []
 
     def run(self):
-        df = pd.read_json(LISTINGS_INPUT_FILENAME)
-        print df.head()
         import pdb
         pdb.set_trace()
+        df = pd.read_json(LISTINGS_INPUT_FILENAME)
+        print df.head()
         df = self._rename_columns(df)
         return df.head()
 
-    def _rename_columns(self.df):
+    def _rename_columns(self, df):
         """ Rename columns """
         return df.rename(columns={
             'mls_id': 'MlsId',
