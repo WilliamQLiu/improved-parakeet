@@ -21,8 +21,7 @@ class TransformListings(luigi.Task):
         df = self._rename_columns(df)
         df = self._datetime_sort_filter(df)
         df = self._description_filter(df)
-        print df.head()
-        return df.head()
+        df.to_csv(LISTINGS_OUTPUT_FILENAME, index=False)
 
     def _rename_columns(self, df):
         """ Rename columns """
