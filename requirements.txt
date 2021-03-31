@@ -20,7 +20,7 @@ incremental==17.5.0
 ipaddress==1.0.18
 lockfile==0.12.2
 luigi==2.6.2
-lxml==3.8.0
+lxml==4.6.3
 mrjob==0.5.10
 numpy==1.13.0
 oauth2client==4.1.1
