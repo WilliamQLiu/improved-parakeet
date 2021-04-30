@@ -37,7 +37,7 @@ pytz==2017.2
 PyYAML==3.12
 queuelib==1.4.2
 requests==2.18.1
-rsa==3.4.2
+rsa==4.7
 Scrapy==1.4.0
 service-identity==17.0.0
 singledispatch==3.4.0.3
