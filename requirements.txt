@@ -38,7 +38,7 @@ PyYAML==3.12
 queuelib==1.4.2
 requests==2.18.1
 rsa==3.4.2
-Scrapy==1.4.0
+Scrapy==1.8.1
 service-identity==17.0.0
 singledispatch==3.4.0.3
 six==1.10.0
